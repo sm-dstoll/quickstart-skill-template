@@ -1,0 +1,18 @@
+{
+  "name": "QUICKSTART SKILL TEMPLATE",
+  "summary": "Quickly demonstrate how to process text coming from digital person into custom skill",
+  "description": "Quickly demonstrate how to process text coming from digital person into custom skill",
+  "status": "ACTIVE",
+  "serviceProvider": "SKILL_API",
+  "categoryIds": [],
+  "endpointInitialize": null,
+  "endpointSession": null,
+  "endpointExecute": "https://4d7e-2601-601-e01-7aa0-b9d1-1ce-1ae4-f41f.ngrok-free.app/execute",
+  "endpointEndSession": null,
+  "endpointEndProject": null,
+  "endpointMatchIntent": null,
+  "languages": null,
+  "config": {
+    "skillType": "BASE_CORPUS"
+  }
+}
