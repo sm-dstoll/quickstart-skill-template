@@ -1,8 +1,6 @@
 const yargs = require('yargs');
 const express = require('express');
 const bodyParser = require('body-parser');
-const axios = require('axios');
-const { serializeMemory } = require('@soulmachines/smskillsdk');
 
 const router = express.Router();
 const app = express();
@@ -10,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 router.get('/', (req, res) => {
-  res.send('howdy')
+  console.log(req);
 })
 
 router.post(
@@ -28,7 +26,6 @@ router.post(
   '/execute',
   async (request, response, next) => {
     const executeRequest = request.body;
-    console.log({ request })
     const executeResponse = await executeHandler(executeRequest);
     response.setHeader('Content-Type', 'application/json');
     response.send(executeResponse);
@@ -39,7 +36,7 @@ app.use('/', router);
 
 const args = yargs(process.argv.slice(2))
   .option({
-    port: { type: 'number', default: 4000, describe: 'Port to serve on' },
+    port: { type: 'number', default: 4001, describe: 'Port to serve on' },
   })
   .help()
   .parseSync();
@@ -62,6 +59,7 @@ async function sessionHandler(req) {
 
 async function executeHandler(req) {
   console.log('EXECUTE HANDLER');
+  console.log({ req })
   const { text, memory } = req;
   const variables = {};
 
