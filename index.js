@@ -36,7 +36,7 @@ app.use('/', router);
 
 const args = yargs(process.argv.slice(2))
   .option({
-    port: { type: 'number', default: 4001, describe: 'Port to serve on' },
+    port: { type: 'number', default: 4000, describe: 'Port to serve on' },
   })
   .help()
   .parseSync();
