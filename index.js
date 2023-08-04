@@ -12,6 +12,17 @@ router.get('/', (req, res) => {
 })
 
 router.post(
+  '/init',
+  async (request, response, next) => {
+    console.log('init Request: ' + JSON.stringify(request.body));
+    const initRequest = request.body;
+    const initResponse = await initHandler(initRequest);
+    response.setHeader('Content-Type', 'application/json');
+    response.send(initResponse);
+  }
+);
+
+router.post(
   '/session',
   async (request, response, next) => {
     console.log('session Request: ' + JSON.stringify(request.body));
@@ -45,6 +56,18 @@ app.listen(args.port, () => {
   console.log(`Soul Machines Skill started on port ${args.port}.`);
 });
 
+async function initHandler(req) {
+  console.log('INIT HANDLER')
+
+  const resp = {
+    output: {},
+    memory: [],
+    endConversation: false,
+    endRouting: false,
+  } 
+  return resp;
+}
+
 async function sessionHandler(req) {
   console.log('SESSION HANDLER')
 
@@ -59,7 +82,6 @@ async function sessionHandler(req) {
 
 async function executeHandler(req) {
   console.log('EXECUTE HANDLER');
-  console.log({ req })
   const { text, memory } = req;
   const variables = {};
 

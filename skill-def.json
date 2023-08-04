@@ -6,7 +6,7 @@
   "serviceProvider": "SKILL_API",
   "categoryIds": [],
   "endpointInitialize": null,
-  "endpointSession": null,
+  "endpointSession": "https://4d7e-2601-601-e01-7aa0-b9d1-1ce-1ae4-f41f.ngrok-free.app/session",
   "endpointExecute": "https://4d7e-2601-601-e01-7aa0-b9d1-1ce-1ae4-f41f.ngrok-free.app/execute",
   "endpointEndSession": null,
   "endpointEndProject": null,
